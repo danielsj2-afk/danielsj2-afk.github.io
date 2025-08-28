@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project/Class Title · Your Name</title>
+  <meta name="description" content="One-sentence summary of this project or class." />
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../styles.css"><!-- optional: or inline minimal styles -->
+  <style>
+    /* tiny defaults if you don't import the main CSS */
+    :root{--bg:#0b0d10;--card:#11151b;--ink:#e8edf3;--muted:#a7b3c2;--accent:#6ae3ff;--line:#1f2630;--radius:16px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif}
+    .wrap{max-width:900px;margin:0 auto;padding:28px 18px 60px}
+    a{color:var(--accent);text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .crumbs{color:var(--muted);font-size:14px}
+    .card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:18px;margin:14px 0}
+    h1{margin:.2em 0}
+    .meta{color:var(--muted);font-size:14px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:800px){.grid{grid-template-columns:1.2fr .8fr}}
+    .list{padding-left:18px}
+    .badge{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px}
+    code,pre{background:#0f1319;border:1px solid var(--line);border-radius:10px;padding:.2em .4em}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="crumbs">
+        <a href="../">← Back to Portfolio</a>
+      </div>
+      <div class="meta" id="last-updated"></div>
+    </header>
+
+    <section class="card">
+      <h1>Project/Class Title</h1>
+      <div class="meta">Type: <span class="badge">Project</span> <span class="badge">Python</span> <span class="badge">Fall 2025</span></div>
+      <p><strong>Overview.</strong> 2–4 sentences on goals, constraints, audience, and outcome.</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Artifacts</h2>
+        <ul class="list">
+          <li><a href="./report.pdf" target="_blank" rel="noopener">Report (PDF)</a></li>
+          <li><a href="https://github.com/username/repo" target="_blank" rel="noopener">Source Code on GitHub</a></li>
+          <li><a href="./demo.mp4" target="_blank" rel="noopener">Demo Video</a></li>
+          <li><a href="./slides.pdf" target="_blank" rel="noopener">Slides</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Quick Facts</h2>
+        <ul class="list">
+          <li>Role: Developer / Analyst</li>
+          <li>Tech: Python, Flask, SQLite</li>
+          <li>Time: 3 weeks</li>
+          <li>Team: 2 people</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Notes & Reflection</h2>
+      <p>What worked, what didn’t, how you tested, where you’d take it next. Keep it honest and specific.</p>
+      <ul class="list">
+        <li>Challenge: rate-limiting on API calls → solved with backoff & caching.</li>
+        <li>Learned: validating inputs early cut bugs by ~30%.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>How to Run</h2>
+      <pre><code># clone
+git clone https://github.com/username/repo
+cd repo
+
+# setup
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+# run
+python app.py
+</code></pre>
+    </section>
+
+    <footer class="meta">© <span id="year"></span> Your Name</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('last-updated').textContent = "Last updated: " + new Date(document.lastModified).toLocaleString();
+  </script>
+</body>
+</html>
