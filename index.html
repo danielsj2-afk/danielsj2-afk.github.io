@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>My Name Portfolio</title>
-  <meta name="description" content="My portfolio of work from Hocking College" />
+  <meta name="description" content="A portfolio showcasing classes, projects, and personal work" />
   <link rel="icon" href="data:,">
-  <meta property="og:title" content="My Name – Cybersecurity Portfolio" />
-  <meta property="og:description" content="Classes, notes, policy, and reflections" />
+  <meta property="og:title" content="My Name – Portfolio" />
+  <meta property="og:description" content="A portfolio site for classes, projects, and personal work" />
   <style>
     :root{
       --bg:#0b0d10; --card:#11151b; --ink:#e8edf3; --muted:#a7b3c2; --accent:#6ae3ff; --line:#1f2630;
@@ -43,7 +43,6 @@
     .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
     .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
 
-    /* optional filter; safe to delete the input + JS if you don't want it */
     .filter{
       width:100%; margin:14px 0 24px; padding:12px 14px; color:var(--ink);
       border:1px solid var(--line); border-radius:12px; background:var(--card);
@@ -55,7 +54,6 @@
     @media (max-width:860px){ .grid{grid-template-columns:repeat(6,1fr)} }
     @media (max-width:560px){ .grid{grid-template-columns:repeat(1,1fr)} }
 
-    /* CARD AS LINK: the entire card is now clickable and focusable */
     .card{
       grid-column: span 4;
       display:flex; flex-direction:column; gap:12px; height:100%;
@@ -92,31 +90,30 @@
         <div class="logo" aria-hidden="true"></div>
         <div>
           <strong>Your Name</strong><br>
-          <span style="color:var(--muted); font-size:13px">My Portfolio</span>
+          <span style="color:var(--muted); font-size:13px">Portfolio</span>
         </div>
       </a>
       <nav aria-label="Primary">
         <a href="/">Home</a>
-        <a href="#posts">Posts</a>
+        <a href="#posts">Portfolio</a>
         <a href="/files/Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
     </header>
 
     <section class="hero" aria-labelledby="title">
-      <h1 id="title">Cybersecurity</h1>
-      <p>Classes, notes, policy, and reflections</p>
+      <h1 id="title">Welcome to My Portfolio</h1>
+      <p>This is a personal portfolio site. You can use it to showcase your classes, projects, research, and creative work. It’s a starting point for students to publish their work online using GitHub Pages and build a professional presence.</p>
       <div class="chips" role="list">
-        <span class="chip" role="listitem">Hocking College</span>
-        <span class="chip" role="listitem">Fall 2025</span>
+        <span class="chip" role="listitem">Classes</span>
+        <span class="chip" role="listitem">Projects</span>
         <span class="chip" role="listitem">GitHub Pages</span>
       </div>
     </section>
 
-    <!-- Optional filter -->
     <input id="filter" class="filter" placeholder="Filter by tag or title…" aria-label="Filter posts">
 
-    <section id="posts" class="grid" aria-label="Courses" role="list">
-      <!-- CLASS CARD: Class 1 -->
+    <section id="posts" class="grid" aria-label="Portfolio entries" role="list">
+      <!-- CLASS CARD: Example Class -->
       <a class="card" href="/CYBR2100" role="listitem" aria-label="Open Cyber Ethics and Cyber Law">
         <div class="meta">CYBR2100 · Fall 2025</div>
         <h3>Cyber Ethics and Cyber Law</h3>
@@ -126,30 +123,33 @@
           <span class="tag">privacy</span>
           <span class="tag">CFAA</span>
         </div>
+        <span class="btn" aria-hidden="true">Open Page</span>
       </a>
 
-      <!-- CLASS CARD: Class 2 -->
-      <a class="card" href="/CYBR2200" role="listitem" aria-label="Open Network Security">
-        <div class="meta">CYBR2200 · Fall 2025</div>
-        <h3>Network Security</h3>
-        <p>Defense-in-depth, segmentation, IDS/IPS, logging, and hands-on labs with packet flows and threat modeling.</p>
+      <!-- PROJECT CARD: Example Project -->
+      <a class="card" href="/projects/password-manager" role="listitem" aria-label="Open Password Manager Project">
+        <div class="meta">Project · Fall 2025</div>
+        <h3>Password Manager</h3>
+        <p>A lightweight password manager built in Python with encryption and a simple user interface. Demonstrates secure coding and usability considerations.</p>
         <div class="tags">
-          <span class="tag">monitoring</span>
-          <span class="tag">defense-in-depth</span>
-          <span class="tag">threat models</span>
+          <span class="tag">Python</span>
+          <span class="tag">encryption</span>
+          <span class="tag">usability</span>
         </div>
+        <span class="btn" aria-hidden="true">View Project</span>
       </a>
 
-      <!-- CLASS CARD: Class 3 -->
-      <a class="card" href="/CYBR2300" role="listitem" aria-label="Open Incident Response">
-        <div class="meta">CYBR2300 · Fall 2025</div>
-        <h3>Incident Response</h3>
-        <p>Playbooks, tabletop exercises, log triage, containment, eradication, and post-incident reviews.</p>
+      <!-- PROJECT CARD: Example Project -->
+      <a class="card" href="/projects/web-scraper" role="listitem" aria-label="Open Web Scraper Project">
+        <div class="meta">Project · Spring 2025</div>
+        <h3>Web Scraper</h3>
+        <p>A tool that extracts and analyzes data from websites, with reporting features and CSV export. Built with Python and BeautifulSoup.</p>
         <div class="tags">
-          <span class="tag">IR</span>
-          <span class="tag">logging</span>
-          <span class="tag">postmortems</span>
+          <span class="tag">Python</span>
+          <span class="tag">data</span>
+          <span class="tag">automation</span>
         </div>
+        <span class="btn" aria-hidden="true">View Project</span>
       </a>
     </section>
 
@@ -160,11 +160,9 @@
   </div>
 
   <script>
-    // Year + last updated
     document.getElementById('y').textContent = new Date().getFullYear();
     document.getElementById('lu').textContent = "Last updated: " + new Date(document.lastModified).toLocaleString();
 
-    // Simple filter (safe: empty input shows everything)
     const input = document.getElementById('filter');
     const cards = Array.from(document.querySelectorAll('#posts .card'));
     input.addEventListener('input', e=>{
