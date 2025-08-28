@@ -6,8 +6,6 @@
   <title>My Name Portfolio</title>
   <meta name="description" content="A portfolio showcasing classes, projects, and personal work" />
   <link rel="icon" href="data:,">
-  <meta property="og:title" content="My Name – Portfolio" />
-  <meta property="og:description" content="A portfolio site for classes, projects, and personal work" />
   <style>
     :root{
       --bg:#0b0d10; --card:#11151b; --ink:#e8edf3; --muted:#a7b3c2; --accent:#6ae3ff; --line:#1f2630;
@@ -42,6 +40,8 @@
     .hero p{margin:0; color:var(--muted)}
     .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
     .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+    .skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .skill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
 
     .filter{
       width:100%; margin:14px 0 24px; padding:12px 14px; color:var(--ink);
@@ -75,12 +75,17 @@
       margin-top:10px; color:inherit;
     }
 
-    footer{margin-top:36px; color:var(--muted); font-size:13px}
-
-    @media (prefers-reduced-motion: reduce){
-      .card{transition:none}
-      .card:hover{transform:none}
+    .contact-links{
+      display:flex; flex-direction:column; gap:10px;
     }
+    .contact-links a{
+      display:flex; align-items:center; gap:8px;
+      text-decoration:none; color:var(--ink);
+      font-weight:500;
+    }
+    .contact-links img{width:20px; height:20px}
+
+    footer{margin-top:36px; color:var(--muted); font-size:13px}
   </style>
 </head>
 <body>
@@ -100,21 +105,43 @@
       </nav>
     </header>
 
-    <section class="hero" aria-labelledby="title">
-      <h1 id="title">Welcome to My Portfolio</h1>
-      <p>This is a personal portfolio site. You can use it to showcase your classes, projects, research, and creative work. It’s a starting point for students to publish their work online using GitHub Pages and build a professional presence.</p>
-      <div class="chips" role="list">
-        <span class="chip" role="listitem">Classes</span>
-        <span class="chip" role="listitem">Projects</span>
-        <span class="chip" role="listitem">GitHub Pages</span>
+    <section id="intro" class="grid" style="margin-bottom:24px">
+      <!-- CONTACT CARD -->
+      <div class="card" style="grid-column: span 4;">
+        <div class="meta">Contact</div>
+        <h3>Get in Touch</h3>
+        <div class="contact-links">
+          <a href="mailto:you@example.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"> you@example.com</a>
+          <a href="https://github.com/username" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"> GitHub</a>
+          <a href="https://linkedin.com/in/username" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- HERO / ABOUT CARD -->
+      <div class="hero" style="grid-column: span 8;">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This portfolio is a starting point for showcasing classes, projects, skills, and personal work. Use it to build a professional online presence and organize your learning journey.</p>
+        <p><strong>About Me:</strong> Write a short bio here: your interests, career goals, or what excites you about technology. Keep it friendly but professional.</p>
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Classes</span>
+          <span class="chip" role="listitem">Projects</span>
+          <span class="chip" role="listitem">Skills</span>
+        </div>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">Linux</span>
+          <span class="skill">Networking</span>
+          <span class="skill">Git</span>
+          <span class="skill">HTML/CSS</span>
+        </div>
       </div>
     </section>
 
     <input id="filter" class="filter" placeholder="Filter by tag or title…" aria-label="Filter posts">
 
     <section id="posts" class="grid" aria-label="Portfolio entries" role="list">
-      <!-- CLASS CARD: Example Class -->
-      <a class="card" href="/CYBR2100" role="listitem" aria-label="Open Cyber Ethics and Cyber Law">
+      <!-- CLASS CARD:CYBR2100 -->
+      <a class="card" href="/CYBR2100" role="listitem">
         <div class="meta">CYBR2100 · Fall 2025</div>
         <h3>Cyber Ethics and Cyber Law</h3>
         <p>Survey of ethics frameworks, privacy, authorization, liability, and U.S. statutes like CFAA and ECPA with case studies.</p>
@@ -123,11 +150,10 @@
           <span class="tag">privacy</span>
           <span class="tag">CFAA</span>
         </div>
-        <span class="btn" aria-hidden="true">Open Page</span>
       </a>
 
       <!-- PROJECT CARD: Example Project -->
-      <a class="card" href="/projects/password-manager" role="listitem" aria-label="Open Password Manager Project">
+      <a class="card" href="/projects/password-manager" role="listitem">
         <div class="meta">Project · Fall 2025</div>
         <h3>Password Manager</h3>
         <p>A lightweight password manager built in Python with encryption and a simple user interface. Demonstrates secure coding and usability considerations.</p>
@@ -136,7 +162,6 @@
           <span class="tag">encryption</span>
           <span class="tag">usability</span>
         </div>
-        <span class="btn" aria-hidden="true">View Project</span>
       </a>
 
       <!-- PROJECT CARD: Example Project -->
@@ -149,7 +174,6 @@
           <span class="tag">data</span>
           <span class="tag">automation</span>
         </div>
-        <span class="btn" aria-hidden="true">View Project</span>
       </a>
     </section>
 
