@@ -9,20 +9,21 @@
   <style>
     :root{
       --bg:#0b0d10; --card:#11151b; --ink:#e8edf3; --muted:#a7b3c2; --accent:#6ae3ff; --line:#1f2630;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.25);
     }
     @media (prefers-color-scheme: light){
       :root{ --bg:#f6f8fb; --card:#ffffff; --ink:#0b1220; --muted:#475569; --accent:#0066ff; --line:#e5e9f0; }
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      margin:0; font:15.5px/1.7 var(--font); letter-spacing:.1px;
       background:radial-gradient(1200px 800px at 80% -10%,rgba(106,227,255,.12),transparent),
                  linear-gradient(180deg,rgba(255,255,255,.02),transparent 200px), var(--bg);
       color:var(--ink);
     }
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 20px 60px}
+    .wrap{max-width:1000px; margin:0 auto; padding:28px 20px 60px}
     header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
     .logo{
@@ -32,60 +33,82 @@
       box-shadow: var(--shadow);
     }
     nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600}
+
+    /* Global links + focus */
+    a{ text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+    nav a{ text-decoration: none; }
+    a:hover{ text-decoration-thickness: 2px; }
+    :focus-visible{ outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* Hero / About */
     .hero{
-      border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.03),transparent), var(--card);
-      border-radius:var(--radius); padding:28px; box-shadow: var(--shadow); margin-bottom:18px;
+      border:1px solid var(--line); background:
+        linear-gradient(180deg,rgba(255,255,255,.03),transparent 60%), var(--card);
+      border-radius:var(--radius); padding:28px; box-shadow: var(--shadow);
+      position:relative; overflow:clip;
     }
-    .hero h1{margin:0 0 8px; font-size:clamp(26px,4vw,40px); line-height:1.15}
+    .hero::after{
+      content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+      background:radial-gradient(600px 200px at 70% -40%, rgba(106,227,255,.12), transparent 60%);
+    }
+    .hero h1{margin:0 0 8px; font-size:clamp(28px,4.2vw,42px); line-height:1.15; letter-spacing:.2px}
     .hero p{margin:0; color:var(--muted)}
     .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
     .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
     .skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
     .skill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
 
+    /* Search */
     .filter{
-      width:100%; margin:14px 0 24px; padding:12px 14px; color:var(--ink);
-      border:1px solid var(--line); border-radius:12px; background:var(--card);
+      width:100%; margin:14px 0 24px; padding:12px 14px 12px 36px; color:var(--ink);
+      border:1px solid var(--line); border-radius:12px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.04),transparent), var(--card);
+      background-image:url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="%23a7b3c2" stroke-width="2"/><line x1="20" y1="20" x2="16.65" y2="16.65" stroke="%23a7b3c2" stroke-width="2" stroke-linecap="round"/></svg>');
+      background-repeat:no-repeat; background-position:10px center;
     }
 
-    .grid{
-      display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch;
-    }
+    /* Grid */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch}
     @media (max-width:860px){ .grid{grid-template-columns:repeat(6,1fr)} }
     @media (max-width:560px){ .grid{grid-template-columns:repeat(1,1fr)} }
 
+    /* Intro row behavior */
+    #intro{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
+    @media (max-width: 860px){ #intro{ grid-template-columns: repeat(6,1fr);} #intro > *{ grid-column: span 6;} }
+
+    /* Cards */
     .card{
       grid-column: span 4;
-      display:flex; flex-direction:column; gap:12px; height:100%;
-      border:1px solid var(--line); background:var(--card); color:inherit;
-      border-radius:var(--radius); padding:18px; text-decoration:none;
+      display:flex; flex-direction:column; gap:10px;
+      border:1px solid color-mix(in oklab, var(--line) 70%, transparent);
+      background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 60%), var(--card);
+      color:inherit; border-radius:var(--radius); padding:20px; text-decoration:none;
       transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
-    .card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(106,227,255,.4);}
-    .card:focus-visible{ outline:3px solid var(--accent); outline-offset:3px; }
-
-    .card h3{margin:0; font-size:18px; min-height:48px;}
-    .card p{margin:0; color:var(--muted); min-height:72px;}
+    .card:hover{ transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow); border-color: rgba(106,227,255,.4);}
+    .card:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+    .card h3{margin:0; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
     .meta{color:var(--muted); font-size:13px}
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;}
-    .tag{font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(106,227,255,.12); color:var(--accent); border:1px solid rgba(106,227,255,.35)}
-    .btn{
-      align-self:flex-start; font-weight:700; padding:10px 14px; border-radius:12px;
-      border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
-      margin-top:10px; color:inherit;
-    }
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto}
+    .tag{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid color-mix(in oklab, var(--line) 70%, transparent); color:var(--muted)}
+    .card:hover .tag{ background:rgba(106,227,255,.08); color:var(--accent)}
 
-    .contact-links{
-      display:flex; flex-direction:column; gap:10px;
-    }
-    .contact-links a{
-      display:flex; align-items:center; gap:8px;
-      text-decoration:none; color:var(--ink);
-      font-weight:500;
-    }
-    .contact-links img{width:20px; height:20px}
+    /* Contact links */
+    .contact-links{display:flex; flex-direction:column; gap:8px}
+    .contact-links a{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:500;
+      border:1px solid color-mix(in oklab, var(--line) 70%, transparent); border-radius:14px; padding:10px 12px;
+      background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+      transition:all .12s ease}
+    .contact-links a:hover{border-color:rgba(106,227,255,.35); background:linear-gradient(180deg,rgba(255,255,255,.05),transparent)}
+    .contact-links img{width:20px; height:20px; opacity:.9}
 
     footer{margin-top:36px; color:var(--muted); font-size:13px}
+
+    /* Accessibility tweaks */
+    @media (prefers-reduced-motion: reduce){ *{transition:none !important} .card:hover{transform:none} }
+    @media (prefers-contrast: more){ .hero, .card{box-shadow:0 0 0 1px var(--line)} }
   </style>
 </head>
 <body>
@@ -105,21 +128,20 @@
       </nav>
     </header>
 
-    <section id="intro" class="grid" style="margin-bottom:24px">
-
-      <!-- CONTACT CARD -->
-      <div class="card" style="grid-column: span 3;">
+    <section id="intro" style="margin-bottom:24px">
+      <!-- CONTACT CARD (left) -->
+      <div class="card" style="grid-column: span 4;">
         <div class="meta">Contact</div>
         <h3>Get in Touch</h3>
         <div class="contact-links">
-          <a href="mailto:you@example.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"> you@example.com</a>
-          <a href="https://github.com/username" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"> GitHub</a>
-          <a href="https://linkedin.com/in/username" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"> LinkedIn</a>
+          <a href="mailto:you@example.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt=""> Email</a>
+          <a href="https://github.com/username" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt=""> GitHub</a>
+          <a href="https://linkedin.com/in/username" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt=""> LinkedIn</a>
         </div>
       </div>
-      
-      <!-- HERO / ABOUT CARD -->
-      <div class="hero" style="grid-column: span 9;">
+
+      <!-- HERO / ABOUT (right) -->
+      <div class="hero" style="grid-column: span 8;">
         <h1>Welcome to My Portfolio</h1>
         <p>This portfolio is a starting point for showcasing classes, projects, skills, and personal work. Use it to build a professional online presence and organize your learning journey.</p>
         <p><strong>About:</strong> Write a short bio here: your interests, career goals, or what excites you about technology. Keep it friendly but professional.</p>
@@ -133,11 +155,10 @@
       </div>
     </section>
 
-    <!--Search bar -->
     <input id="filter" class="filter" placeholder="Filter by tag or title…" aria-label="Filter posts">
 
     <section id="posts" class="grid" aria-label="Portfolio entries" role="list">
-      <!-- CLASS CARD:CYBR2100 -->
+      <!-- CLASS CARD: CYBR2100 -->
       <a class="card" href="./CYBR2100" role="listitem">
         <div class="meta">CYBR2100 · Fall 2025</div>
         <h3>Cyber Ethics and Cyber Law</h3>
@@ -162,7 +183,7 @@
       </a>
 
       <!-- PROJECT CARD: Example Project -->
-      <a class="card" href="/projects/web-scraper" role="listitem" aria-label="Open Web Scraper Project">
+      <a class="card" href="/projects/web-scraper" role="listitem">
         <div class="meta">Project · Spring 2025</div>
         <h3>Web Scraper</h3>
         <p>A tool that extracts and analyzes data from websites, with reporting features and CSV export. Built with Python and BeautifulSoup.</p>
