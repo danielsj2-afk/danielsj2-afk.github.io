@@ -3,95 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project/Class Title · Your Name</title>
-  <meta name="description" content="One-sentence summary of this project or class." />
+  <title>CYBR2100 – Cyber Ethics and Cyber Law</title>
+  <meta name="description" content="Weekly coursework and notes for Cyber Ethics and Cyber Law" />
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="../styles.css"><!-- optional: or inline minimal styles -->
   <style>
-    /* tiny defaults if you don't import the main CSS */
-    :root{--bg:#0b0d10;--card:#11151b;--ink:#e8edf3;--muted:#a7b3c2;--accent:#6ae3ff;--line:#1f2630;--radius:16px}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif}
-    .wrap{max-width:900px;margin:0 auto;padding:28px 18px 60px}
-    a{color:var(--accent);text-decoration:none}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .crumbs{color:var(--muted);font-size:14px}
-    .card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:18px;margin:14px 0}
-    h1{margin:.2em 0}
-    .meta{color:var(--muted);font-size:14px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:800px){.grid{grid-template-columns:1.2fr .8fr}}
-    .list{padding-left:18px}
-    .badge{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px}
-    code,pre{background:#0f1319;border:1px solid var(--line);border-radius:10px;padding:.2em .4em}
+    :root{
+      --bg:#0b0d10; --card:#11151b; --ink:#e8edf3; --muted:#a7b3c2; --accent:#6ae3ff; --line:#1f2630;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --card:#ffffff; --ink:#0b1220; --muted:#475569; --accent:#0066ff; --line:#e5e9f0; }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font:15.5px/1.7 var(--font);
+      background:radial-gradient(1200px 800px at 80% -10%,rgba(106,227,255,.12),transparent),
+                 linear-gradient(180deg,rgba(255,255,255,.02),transparent 200px), var(--bg);
+      color:var(--ink);
+    }
+    .wrap{max-width:900px; margin:0 auto; padding:28px 20px 60px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
+    .logo{
+      width:42px; height:42px; border-radius:14px; background:
+        radial-gradient(14px 10px at 30% 30%, rgba(255,255,255,.3), transparent),
+        linear-gradient(135deg, var(--accent), #8ef7c2);
+      box-shadow: var(--shadow);
+    }
+    nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600}
+
+    a{ text-decoration: underline; text-underline-offset:3px; text-decoration-thickness:1.5px; }
+    nav a:hover{ text-decoration:underline; text-decoration-thickness:2px; }
+
+    .hero{
+      border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 60%), var(--card);
+      border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); margin-bottom:24px;
+    }
+    .hero h1{margin:0 0 8px; font-size:clamp(26px,4vw,36px)}
+    .hero h2{margin:0; font-size:20px; font-weight:500; color:var(--muted)}
+
+    .weeks{border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px; box-shadow:var(--shadow)}
+    .weeks h3{margin-top:0}
+    .weeks ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+    .weeks li{border:1px solid var(--line); border-radius:12px; padding:12px 14px; background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+    .weeks li a{color:var(--ink); font-weight:500; text-decoration:none; display:block}
+    .weeks li a:hover{color:var(--accent)}
+
+    footer{margin-top:36px; color:var(--muted); font-size:13px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="crumbs">
-        <a href="../">← Back to Portfolio</a>
-      </div>
-      <div class="meta" id="last-updated"></div>
+      <a class="brand" href="../" aria-label="Back to Portfolio">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>Your Name</strong><br>
+          <span style="color:var(--muted); font-size:13px">Portfolio</span>
+        </div>
+      </a>
+      <nav aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="../#posts">Portfolio</a>
+        <a href="../files/Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
     </header>
 
-    <section class="card">
-      <h1>Project/Class Title</h1>
-      <div class="meta">Type: <span class="badge">Project</span> <span class="badge">Python</span> <span class="badge">Fall 2025</span></div>
-      <p><strong>Overview.</strong> 2–4 sentences on goals, constraints, audience, and outcome.</p>
+    <section class="hero">
+      <h1>Hocking College 2025</h1>
+      <h2>Cyber Ethics and Cyber Law</h2>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Artifacts</h2>
-        <ul class="list">
-          <li><a href="./report.pdf" target="_blank" rel="noopener">Report (PDF)</a></li>
-          <li><a href="https://github.com/username/repo" target="_blank" rel="noopener">Source Code on GitHub</a></li>
-          <li><a href="./demo.mp4" target="_blank" rel="noopener">Demo Video</a></li>
-          <li><a href="./slides.pdf" target="_blank" rel="noopener">Slides</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Quick Facts</h2>
-        <ul class="list">
-          <li>Role: Developer / Analyst</li>
-          <li>Tech: Python, Flask, SQLite</li>
-          <li>Time: 3 weeks</li>
-          <li>Team: 2 people</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Notes & Reflection</h2>
-      <p>What worked, what didn’t, how you tested, where you’d take it next. Keep it honest and specific.</p>
-      <ul class="list">
-        <li>Challenge: rate-limiting on API calls → solved with backoff & caching.</li>
-        <li>Learned: validating inputs early cut bugs by ~30%.</li>
+    <section class="weeks">
+      <h3>Weekly Work</h3>
+      <ul>
+        <li><a href="./week-01/">Week 1 — Ethics &amp; Law Orientation</a></li>
+        <li><a href="./week-02/">Week 2 — Privacy by Design: Monitoring Policy</a></li>
+        <li><a href="./week-03/">Week 3 — OSS &amp; Disclosure Readiness</a></li>
+        <li><a href="./week-04/">Week 4 — Incident Ethics &amp; Evidence Notes</a></li>
+        <li><a href="./week-05/">Week 5 — ROE Starter Pack</a></li>
+        <li><a href="./week-06/">Week 6 — AI Use in Security Operations</a></li>
+        <li><a href="./week-07/">Week 7 — Bioethics &amp; Society Plan</a></li>
+        <li><a href="./week-08/">Week 8 — Portfolio Index &amp; Ethics Statement</a></li>
       </ul>
     </section>
 
-    <section class="card">
-      <h2>How to Run</h2>
-      <pre><code># clone
-git clone https://github.com/username/repo
-cd repo
-
-# setup
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-# run
-python app.py
-</code></pre>
-    </section>
-
-    <footer class="meta">© <span id="year"></span> Your Name</footer>
+    <footer>
+      <div>© <span id="y"></span> Your Name • Built with GitHub Pages</div>
+      <div id="lu"></div>
+    </footer>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('last-updated').textContent = "Last updated: " + new Date(document.lastModified).toLocaleString();
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('lu').textContent = "Last updated: " + new Date(document.lastModified).toLocaleString();
   </script>
 </body>
 </html>
