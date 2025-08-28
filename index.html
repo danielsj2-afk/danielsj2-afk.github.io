@@ -46,7 +46,9 @@
         linear-gradient(180deg,rgba(255,255,255,.03),transparent 60%), var(--card);
       border-radius:var(--radius); padding:28px; box-shadow: var(--shadow);
       position:relative; overflow:clip;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
+    .hero:hover{transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow); border-color: rgba(106,227,255,.4);}
     .hero::after{
       content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
       background:radial-gradient(600px 200px at 70% -40%, rgba(106,227,255,.12), transparent 60%);
