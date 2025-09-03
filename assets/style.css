@@ -127,12 +127,23 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 #intro > *{ min-width:0; }
 
 /* Stack on smaller screens */
+@media (max-width: 860px){
+  #intro{ grid-template-columns: 1fr; }
+}
+
+/* Stack on smaller screens */
 @media (max-width:860px){
   #intro{ grid-template-columns: 1fr; }
 }
 
-@media (max-width: 860px){.card{ grid-column: span 6; }}
-@media (max-width: 560px){.card{ grid-column: span 12; }}
+/* Cards layout inside the #posts grid only */
+#posts.grid > .card { grid-column: span 4; }        /* 3 per row (desktop) */
+@media (max-width: 860px){
+  #posts.grid > .card { grid-column: span 6; }      /* 2 per row (tablet) */
+}
+@media (max-width: 560px){
+  #posts.grid > .card { grid-column: span 12; }     /* 1 per row (phone) */
+}
 
 /* ===== Mobile tweaks ===== */
 @media (max-width: 420px){
