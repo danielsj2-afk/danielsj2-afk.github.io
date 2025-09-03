@@ -25,37 +25,44 @@
       </nav>
     </header>
 
-  <section id="intro" style="margin-bottom:24px">
-    <!-- CONTACT CARD (left) -->
-    <div class="card fullheight">
-      <div class="meta">Contact</div>
-      <h3>Get in Touch</h3>
-      <div class="contact-links">
-        <a href="mailto:you@example.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt=""> Email</a>
-        <a href="https://github.com/username" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt=""> GitHub</a>
-        <a href="https://linkedin.com/in/username" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt=""> LinkedIn</a>
+    <!-- INTRO: dedicated 2-col grid (contact | hero) -->
+    <section id="intro">
+      <!-- CONTACT CARD -->
+      <div class="card contact-card">
+        <div class="meta">Contact</div>
+        <h3>Get in Touch</h3>
+        <div class="contact-links">
+          <a href="mailto:you@example.com">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt=""> Email
+          </a>
+          <a href="https://github.com/username" target="_blank" rel="noopener">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt=""> GitHub
+          </a>
+          <a href="https://linkedin.com/in/username" target="_blank" rel="noopener">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt=""> LinkedIn
+          </a>
+        </div>
       </div>
-    </div>
-  
-    <!-- HERO / ABOUT (right) -->
-    <div class="hero fullheight">
-      <h1>Welcome to My Portfolio</h1>
-      <p>This portfolio is a starting point for showcasing classes, projects, skills, and personal work. Use it to build a professional online presence and organize your learning journey.</p>
-      <p><strong>About:</strong> Write a short bio here: your interests, career goals, or what excites you about technology. Keep it friendly but professional.</p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Networking</span>
-        <span class="tag">Git</span>
-        <span class="tag">HTML/CSS</span>
+
+      <!-- HERO / ABOUT -->
+      <div class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This portfolio is a starting point for showcasing classes, projects, skills, and personal work. Use it to build a professional online presence and organize your learning journey.</p>
+        <p><strong>About:</strong> Write a short bio here: your interests, career goals, or what excites you about technology. Keep it friendly but professional.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Git</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <input id="filter" class="filter" placeholder="Filter by tag or title…" aria-label="Filter posts">
 
+    <!-- CARDS GRID -->
     <section id="posts" class="grid" aria-label="Portfolio entries" role="list">
-      <!-- CLASS CARD: CYBR2100 -->
       <a class="card" href="./CYBR2100" role="listitem">
         <div class="meta">CYBR2100 · Fall 2025</div>
         <h3>Cyber Ethics and Cyber Law</h3>
@@ -68,7 +75,6 @@
         </div>
       </a>
 
-      <!-- PROJECT CARD: Example Project -->
       <a class="card" href="/Projects/project1" role="listitem">
         <div class="meta">Project · Fall 2025</div>
         <h3>Project #1</h3>
@@ -80,7 +86,6 @@
         </div>
       </a>
 
-      <!-- PROJECT CARD: Example Project -->
       <a class="card" href="/Projects/project2" role="listitem">
         <div class="meta">Project · Fall 2025</div>
         <h3>Project #2</h3>
