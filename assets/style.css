@@ -68,14 +68,13 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 
 /* ===== Pills: tags + skills share one style ===== */
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
-.skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
-.tag, .skill{
+.tag{
   font-size:12px; padding:6px 10px; border-radius:999px; color:var(--muted);
   border:1px solid var(--line);
   transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
 /* Light up pills when their parent surface is hovered */
-:is(.hero, .card):hover :is(.tag, .skill){
+:is(.hero, .card):hover :is(.tag){
   background: rgba(0,102,255,.08);
   color: var(--accent);
   border-color: var(--accent-alpha);
@@ -142,9 +141,3 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 
 /* ===== Footer ===== */
 footer{margin-top:36px; color:var(--muted); font-size:13px}
-
-/* ===== Progressive enhancement fallback for color-mix ===== */
-@supports not (color: color(display-p3 0 0 0)){
-  /* browsers without modern color support still get solid borders */
-  .card, .tag, .skill, .contact-links a{ border-color: var(--line); }
-}
