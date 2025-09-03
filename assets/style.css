@@ -67,7 +67,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 .section p{color:var(--muted)}
 
 /* ===== Pills: tags + skills share one style ===== */
-.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
 .skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
 .tag, .skill{
   font-size:12px; padding:6px 10px; border-radius:999px; color:var(--muted);
