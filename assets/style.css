@@ -54,6 +54,8 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
 .skills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
 .skill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
+.skill{transition: background .15s ease, color .15s ease, border-color .15s ease;}
+.hero:hover .skill{background: rgba(0,102,255,.08); color: var(--accent); border-color: rgba(0,102,255,.35);}
 
 /* ===== Search ===== */
 .filter{
