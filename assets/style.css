@@ -97,17 +97,10 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 }
 
 /* ===== Intro (2-col) ===== */
-#intro{
-  display:grid;
-  gap:18px;
-  grid-template-columns: 3fr 9fr; /* contact | hero */
-  align-items:stretch;
-  margin-bottom: var(--space);
-}
+#intro{ display:grid; gap:18px; grid-template-columns: 3fr 9fr; align-items:stretch; margin-bottom: var(--space);}
+#intro .hero { margin: 0; }
 #intro > *{ min-width:0; }
-@media (max-width: 860px){
-  #intro{ grid-template-columns: 1fr; } /* stack */
-}
+@media (max-width: 860px){#intro{ grid-template-columns: 1fr; }}
 
 /* ===== Cards grid ===== */
 .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch; }
