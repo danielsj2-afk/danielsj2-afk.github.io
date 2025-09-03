@@ -20,8 +20,6 @@ a:hover{ text-decoration-thickness: 2px; }
 :focus-visible{ outline: 3px solid var(--accent); outline-offset: 2px; }
 img{max-width:100%; height:auto}
 
-.wrap--narrow{ max-width: 1000px; }
-
 /* ===== Header ===== */
 header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px}
 .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
