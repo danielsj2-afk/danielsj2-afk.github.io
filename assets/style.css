@@ -35,7 +35,7 @@ header{display:flex; align-items:center; justify-content:space-between; gap:12px
 }
 nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600}
 
-/* ===== Shared ===== */
+/* ===== Shared surface (hero, card, section) ===== */
 :is(.hero, .card, .section){
   border:1px solid var(--line);
   background: var(--elev);
@@ -48,7 +48,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   border-color: var(--accent-alpha);
 }
 
-/* Tweaks */
+/* ===== Hero ===== */
 .hero{ padding:28px; position:relative; overflow:clip; margin-bottom: var(--space); }
 .hero::after{
   content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
@@ -56,16 +56,23 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 }
 .hero h1{margin:0 0 8px; font-size:clamp(28px,4.2vw,42px); line-height:1.15; letter-spacing:.2px}
 .hero p{margin:0; color:var(--muted)}
-.fullheight{ height: 100%; display: flex; flex-direction: column; }
 
-.card{ grid-column: span 4; display:flex; flex-direction:column; gap:10px; padding:20px; color:inherit; text-decoration:none }
+/* ===== Cards (generic) ===== */
+.card{ display:flex; flex-direction:column; gap:10px; padding:20px; color:inherit; text-decoration:none }
 .card h3{margin:0; font-size:18px}
 .card p{margin:0; color:var(--muted)}
 .meta{color:var(--muted); font-size:13px}
 
-.section{ padding:20px; margin: 0 0 var(--space); }
-.section h2{margin-top:0; font-size:20px}
-.section p{color:var(--muted)}
+/* ===== Contact card specialization ===== */
+.contact-card{ display:flex; flex-direction:column; }
+.contact-links{ display:flex; flex-direction:column; gap:8px; margin-top:auto; }
+.contact-links a{
+  display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:500;
+  border:1px solid var(--line); border-radius:14px; padding:10px 12px;
+  background:linear-gradient(180deg,rgba(0,0,0,.02),transparent); transition:all .12s ease
+}
+.contact-links a:hover{ border-color: var(--accent-alpha); background:linear-gradient(180deg,rgba(0,0,0,.05),transparent) }
+.contact-links img{ width:20px; height:20px; opacity:.9 }
 
 /* ===== Pills ===== */
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
@@ -74,7 +81,6 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   border:1px solid var(--line);
   transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
-/* Light up pills when their parent surface is hovered */
 :is(.hero, .card):hover :is(.tag){
   background: rgba(0,102,255,.08);
   color: var(--accent);
@@ -90,14 +96,48 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   background-repeat:no-repeat; background-position:10px center;
 }
 
-/* ===== Weeks list (course index pages) ===== */
+/* ===== Intro (2-col) ===== */
+#intro{
+  display:grid;
+  gap:18px;
+  grid-template-columns: 3fr 9fr; /* contact | hero */
+  align-items:stretch;
+  margin-bottom: var(--space);
+}
+#intro > *{ min-width:0; }
+@media (max-width: 860px){
+  #intro{ grid-template-columns: 1fr; } /* stack */
+}
+
+/* ===== Cards grid ===== */
+.grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch; }
+@media (max-width:860px){ .grid{ grid-template-columns:repeat(6,1fr); } }
+@media (max-width:560px){ .grid{ grid-template-columns:repeat(1,1fr); } }
+
+/* Only apply column spans to cards inside the #posts grid */
+#posts.grid > .card { grid-column: span 4; }        /* 3 per row (desktop) */
+@media (max-width: 860px){
+  #posts.grid > .card { grid-column: span 6; }      /* 2 per row (tablet) */
+}
+@media (max-width: 560px){
+  #posts.grid > .card { grid-column: span 12; }     /* 1 per row (phone) */
+}
+
+/* ===== Weeks (course index pages) ===== */
 .weeks{border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px; box-shadow:var(--shadow); margin-top: var(--space)}
 .weeks h3{ margin-top:0 }
 .weeks ul{list-style:none; padding:0; margin:0; display:grid; gap:12px}
-
-/* Each week link acts like a mini card */
-.link-card{display:block; padding:14px 16px; border:1px solid var(--line); border-radius:12px; background: var(--elev); color:inherit; text-decoration:none; transition: transform .15s ease, border-color .15s ease, color .15s ease;}
+.link-card{
+  display:block; padding:14px 16px; border:1px solid var(--line); border-radius:12px;
+  background: var(--elev); color:inherit; text-decoration:none;
+  transition: transform .15s ease, border-color .15s ease, color .15s ease;
+}
 .link-card:hover{ transform: translateY(-2px) scale(1.01); border-color: var(--accent-alpha); color: var(--accent)}
+
+/* ===== Sections (weekly pages) ===== */
+.section{ padding:20px; margin: 0 0 var(--space); }
+.section h2{margin-top:0; font-size:20px}
+.section p{color:var(--muted)}
 
 /* ===== Files list (weekly pages) ===== */
 .files{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px }
@@ -107,43 +147,6 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   background: linear-gradient(180deg, rgba(0,0,0,.02), transparent);
 }
 .files a:hover{ color:var(--accent) }
-
-/* ===== Contact links card ===== */
-.contact-links{display:flex; flex-direction:column; gap:8px; margin-top:auto;}
-.contact-links a{
-  display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); font-weight:500;
-  border:1px solid var(--line); border-radius:14px; padding:10px 12px;
-  background:linear-gradient(180deg,rgba(0,0,0,.02),transparent); transition:all .12s ease
-}
-.contact-links a:hover{border-color:var(--accent-alpha); background:linear-gradient(180deg,rgba(0,0,0,.05),transparent)}
-.contact-links img{width:20px; height:20px; opacity:.9}
-
-/* ===== Grid + intro row ===== */
-.grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch; }
-@media (max-width:860px){ .grid{ grid-template-columns:repeat(6,1fr); } }
-@media (max-width:560px){ .grid{ grid-template-columns:repeat(1,1fr); } }
-
-#intro{ display:grid; gap:18px; grid-template-columns: 3fr 9fr; align-items:stretch; margin-bottom: var(--space);}
-#intro > *{ min-width:0; }
-
-/* Stack on smaller screens */
-@media (max-width: 860px){
-  #intro{ grid-template-columns: 1fr; }
-}
-
-/* Stack on smaller screens */
-@media (max-width:860px){
-  #intro{ grid-template-columns: 1fr; }
-}
-
-/* Cards layout inside the #posts grid only */
-#posts.grid > .card { grid-column: span 4; }        /* 3 per row (desktop) */
-@media (max-width: 860px){
-  #posts.grid > .card { grid-column: span 6; }      /* 2 per row (tablet) */
-}
-@media (max-width: 560px){
-  #posts.grid > .card { grid-column: span 12; }     /* 1 per row (phone) */
-}
 
 /* ===== Mobile tweaks ===== */
 @media (max-width: 420px){
