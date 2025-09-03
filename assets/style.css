@@ -126,7 +126,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch}
 @media (max-width:860px){ .grid{grid-template-columns:repeat(6,1fr)} }
 @media (max-width:560px){ .grid{grid-template-columns:repeat(1,1fr)} }
-#intro{ display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; }
+#intro{display:grid; gap:18px; grid-template-columns: 3fr 9fr; /* contact (4) | hero (8) */}
 @media (max-width: 860px){ #intro{ grid-template-columns: repeat(6,1fr);} #intro > *{ grid-column: span 6;} }
 
 /* ===== Mobile tweaks ===== */
