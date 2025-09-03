@@ -103,9 +103,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 
 /* ===== Cards grid ===== */
 .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch; }
-
-/* Only apply column spans to cards inside the #posts grid */
-#posts.grid > .card { grid-column: span 4; }
+#posts.grid{grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));}
 
 /* ===== Weeks (course index pages) ===== */
 .weeks{border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px; box-shadow:var(--shadow); margin-top: var(--space)}
@@ -140,7 +138,6 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   nav a{ display:inline-block; padding:6px 0; }
   .card{ padding:18px; }
   #intro{ grid-template-columns: 1fr;}
-  .grid{ grid-template-columns:repeat(1,1fr);}
 }
 
 /* ===== Footer ===== */
