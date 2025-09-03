@@ -100,21 +100,15 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 #intro{ display:grid; gap:18px; grid-template-columns: 3fr 9fr; align-items:stretch; margin-bottom: var(--space);}
 #intro .hero { margin: 0; }
 #intro > *{ min-width:0; }
-@media (max-width: 860px){#intro{ grid-template-columns: 1fr; }}
+@media (max-width: 720px){#intro{ grid-template-columns: 1fr; }}
 
 /* ===== Cards grid ===== */
 .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:18px; align-items:stretch; }
-@media (max-width:860px){ .grid{ grid-template-columns:repeat(6,1fr); } }
-@media (max-width:560px){ .grid{ grid-template-columns:repeat(1,1fr); } }
 
 /* Only apply column spans to cards inside the #posts grid */
-#posts.grid > .card { grid-column: span 4; }        /* 3 per row (desktop) */
-@media (max-width: 860px){
-  #posts.grid > .card { grid-column: span 6; }      /* 2 per row (tablet) */
-}
-@media (max-width: 560px){
-  #posts.grid > .card { grid-column: span 12; }     /* 1 per row (phone) */
-}
+#posts.grid > .card { grid-column: span 4; }
+@media (max-width: 720px){#posts.grid > .card { grid-column: span 6; }}
+@media (max-width: 420px){#posts.grid > .card { grid-column: span 12; }}
 
 /* ===== Weeks (course index pages) ===== */
 .weeks{border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px; box-shadow:var(--shadow); margin-top: var(--space)}
@@ -145,8 +139,6 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 @media (max-width: 420px){
   .wrap{ padding-left:16px; padding-right:16px; }
   nav a{ margin-left:10px; }
-}
-@media (max-width: 560px){
   header{ flex-direction: column; align-items: flex-start; gap: 10px; }
   nav a{ display:inline-block; padding:6px 0; }
   .card{ padding:18px; }
