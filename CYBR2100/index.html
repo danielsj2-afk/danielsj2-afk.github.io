@@ -6,55 +6,10 @@
   <title>CYBR2100 – Cyber Ethics and Cyber Law</title>
   <meta name="description" content="Weekly coursework and notes for Cyber Ethics and Cyber Law" />
   <link rel="icon" href="data:,">
-  <style>
-    :root{
-      --bg:#0b0d10; --card:#11151b; --ink:#e8edf3; --muted:#a7b3c2; --accent:#6ae3ff; --line:#1f2630;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.25);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f6f8fb; --card:#ffffff; --ink:#0b1220; --muted:#475569; --accent:#0066ff; --line:#e5e9f0; }
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font:15.5px/1.7 var(--font);
-      background:radial-gradient(1200px 800px at 80% -10%,rgba(106,227,255,.12),transparent),
-                 linear-gradient(180deg,rgba(255,255,255,.02),transparent 200px), var(--bg);
-      color:var(--ink);
-    }
-    .wrap{max-width:900px; margin:0 auto; padding:28px 20px 60px}
-    header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:24px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink)}
-    .logo{
-      width:42px; height:42px; border-radius:14px; background:
-        radial-gradient(14px 10px at 30% 30%, rgba(255,255,255,.3), transparent),
-        linear-gradient(135deg, var(--accent), #8ef7c2);
-      box-shadow: var(--shadow);
-    }
-    nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600}
-
-    a{ text-decoration: underline; text-underline-offset:3px; text-decoration-thickness:1.5px; }
-    nav a:hover{ text-decoration:underline; text-decoration-thickness:2px; }
-
-    .hero{
-      border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.03),transparent 60%), var(--card);
-      border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); margin-bottom:24px;
-    }
-    .hero h1{margin:0 0 8px; font-size:clamp(26px,4vw,36px)}
-    .hero h2{margin:0; font-size:20px; font-weight:500; color:var(--muted)}
-
-    .weeks{border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px; box-shadow:var(--shadow)}
-    .weeks h3{margin-top:0}
-    .weeks ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
-    .weeks li{border:1px solid var(--line); border-radius:12px; padding:12px 14px; background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
-    .weeks li a{color:var(--ink); font-weight:500; text-decoration:none; display:block}
-    .weeks li a:hover{color:var(--accent)}
-
-    footer{margin-top:36px; color:var(--muted); font-size:13px}
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap wrap--narrow">
     <header>
       <a class="brand" href="../" aria-label="Back to Portfolio">
         <div class="logo" aria-hidden="true"></div>
@@ -64,7 +19,8 @@
         </div>
       </a>
       <nav aria-label="Primary">
-        <a href="../">Portfolio</a>
+        <a href="../">Home</a>
+        <a href="../#posts">Portfolio</a>
         <a href="../Documents/Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
     </header>
@@ -101,3 +57,4 @@
   </script>
 </body>
 </html>
+
