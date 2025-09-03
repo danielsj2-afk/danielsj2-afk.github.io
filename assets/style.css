@@ -129,6 +129,9 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 #intro{display:grid; gap:18px; grid-template-columns: 3fr 9fr; /* contact (4) | hero (8) */}
 @media (max-width: 860px){ #intro{ grid-template-columns: repeat(6,1fr);} #intro > *{ grid-column: span 6;} }
 
+@media (max-width: 860px){.card{ grid-column: span 6; }}
+@media (max-width: 560px){.card{ grid-column: span 12; }}
+
 /* ===== Mobile tweaks ===== */
 @media (max-width: 420px){
   .wrap{ padding-left:16px; padding-right:16px; }
