@@ -35,7 +35,7 @@ header{display:flex; align-items:center; justify-content:space-between; gap:12px
 }
 nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600}
 
-/* ===== Shared “surface” (hero, card, section) ===== */
+/* ===== Shared ===== */
 :is(.hero, .card, .section){
   border:1px solid var(--line);
   background: var(--elev);
@@ -48,7 +48,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   border-color: var(--accent-alpha);
 }
 
-/* Individual tweaks */
+/* Tweaks */
 .hero{ padding:28px; position:relative; overflow:clip; margin-bottom: var(--space); }
 .hero::after{
   content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
@@ -66,8 +66,8 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
 .section h2{margin-top:0; font-size:20px}
 .section p{color:var(--muted)}
 
-/* ===== Pills: tags + skills share one style ===== */
-.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+/* ===== Pills ===== */
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
 .tag{
   font-size:12px; padding:6px 10px; border-radius:999px; color:var(--muted);
   border:1px solid var(--line);
@@ -80,7 +80,7 @@ nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:60
   border-color: var(--accent-alpha);
 }
 
-/* ===== Chips (if you keep them distinct) ===== */
+/* ===== Chips ===== */
 .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
 .chip{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted)}
 
